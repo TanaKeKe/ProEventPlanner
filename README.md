@@ -1,5 +1,5 @@
 ### 💡Ứng dụng tổ chức sự kiện: ProEventPlanner
-🤜 Ứng dụng tổ chức sự kiện: ProEventPlanner là 1 ứng dụng cho phép người dùng quản lý các sự kiện. Ứng dụng cho phép: 
+🤜 Ứng dụng tổ chức sự kiện: ProEventPlanner là 1 ứng dụng cho phép người dùng quản lý các sự kiện.
 
 ### Authors
 [@TanaKeKe](https://github.com/TanaKeKe)
