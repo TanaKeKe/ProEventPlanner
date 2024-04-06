@@ -1,43 +1,40 @@
 0
-Picnic
-None
-None
-A
-Pending
+Sinh nhật s2b
+19h00
+09/03/2024
+Taki group - macplaza - trần phú - hà đông
+Done
 0
 3
 1
-Em tân đi chơi
+In ấn
+05/03/2024
 None
+Phan văn duy
+Done
+2
+Làm đạo cụ
+05/03/2024
 None
+Sơn nè
+Done
+3
+Thuê đồ
+8/3
 None
+Quỳnh zzz
+Done
+1
+Picnic
+14h
+20/04/2024
+Thiên phú lâm
 Pending
-1
-None
-None
-None
-None
-Pending
-1
-None
-None
-None
-None
-Pending
-1
-Sinh nhật
-None
-None
-None
-Pending
-1
-Đi chơi nè
-Aaaaa
-12h
+0
 1
 1
-None
-None
-None
-None
+Chuẩn bị quần áo
+20/04/2024
+Nhớ
+Tân
 Pending

@@ -8,23 +8,25 @@ import Model.Event;
 import Model.Task;
 import Model.Timeline;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
+import java.awt.event.MouseListener;
+import java.net.URL;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
 public final class FrameProEventPlanner extends javax.swing.JFrame {
     
     public FrameProEventPlanner() {
         initComponents();
+        // xét icon cho frame
+        URL urlIconFrame = FrameProEventPlanner.class.getResource("iconFrame.png");
+        Image image = Toolkit.getDefaultToolkit().createImage(urlIconFrame);
+        this.setIconImage(image);
         
         PanelAddEvent.setVisible(false);
         PanelListEvent.setVisible(false);
@@ -45,17 +47,21 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonDeleteThislineOfTimeline = new javax.swing.JButton();
         buttonNotDeleteThisLineOfTimeline = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         dialogNoticeTask = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         buttonDeleteThisLineOfTask = new javax.swing.JButton();
         buttonNoteDeleteThisLineOfTask = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         PanelStart = new javax.swing.JPanel();
-        buttonStartProEventPlanner = new javax.swing.JButton();
+        labelStart = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         PanelListEvent = new javax.swing.JPanel();
         labelListEvent = new javax.swing.JLabel();
         buttonGoAddEvent = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tableListEvent = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
         PanelEditEvent = new javax.swing.JPanel();
         titleLaberBigEventOfEditEvent = new javax.swing.JLabel();
         buttonEditEventGoBackListEvent = new javax.swing.JButton();
@@ -72,8 +78,7 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         labelDateEventOfEditEvent = new javax.swing.JLabel();
         comboBoxStatusOfEditEvent = new javax.swing.JComboBox<>();
         labelStatusOfEditEvent = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        labelOptionEvent = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         PanelAddEvent = new javax.swing.JPanel();
         titleLaberBigEventOfAddEvent = new javax.swing.JLabel();
         buttonAddEventGoBackListEvent = new javax.swing.JButton();
@@ -89,6 +94,7 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         labelStatusOfAddEvent = new javax.swing.JLabel();
         comboBoxStatusOfAddEvent = new javax.swing.JComboBox<>();
         buttonAddEvent = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         PanelAccessEvent = new javax.swing.JPanel();
         labelNameEventOfAccessEvent = new javax.swing.JLabel();
         TabbedPaneAccessEvent = new javax.swing.JTabbedPane();
@@ -125,118 +131,96 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         buttonUpdateOfTimeline = new javax.swing.JButton();
         buttonDeleteAllOfTimeline = new javax.swing.JButton();
         buttonAccessEventGoBackListEvent = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         dialogNoticeTimeline.setTitle("Thông báo");
-        dialogNoticeTimeline.setModal(true);
-        dialogNoticeTimeline.setPreferredSize(new java.awt.Dimension(463, 252));
+        dialogNoticeTimeline.setPreferredSize(new java.awt.Dimension(400, 200));
+        dialogNoticeTimeline.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Anh/chị muốn xóa phần timeline này đúng không ?");
+        jLabel1.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Bạn muốn xóa timeline này ?");
+        dialogNoticeTimeline.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 450, 70));
 
         buttonDeleteThislineOfTimeline.setText("Đúng Vậy!");
+        dialogNoticeTimeline.getContentPane().add(buttonDeleteThislineOfTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 100, 40));
 
-        buttonNotDeleteThisLineOfTimeline.setText("Không em!");
+        buttonNotDeleteThisLineOfTimeline.setText("Hông");
+        dialogNoticeTimeline.getContentPane().add(buttonNotDeleteThisLineOfTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, 40));
 
-        javax.swing.GroupLayout dialogNoticeTimelineLayout = new javax.swing.GroupLayout(dialogNoticeTimeline.getContentPane());
-        dialogNoticeTimeline.getContentPane().setLayout(dialogNoticeTimelineLayout);
-        dialogNoticeTimelineLayout.setHorizontalGroup(
-            dialogNoticeTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogNoticeTimelineLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(buttonDeleteThislineOfTimeline, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonNotDeleteThisLineOfTimeline, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-            .addGroup(dialogNoticeTimelineLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        dialogNoticeTimelineLayout.setVerticalGroup(
-            dialogNoticeTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogNoticeTimelineLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(dialogNoticeTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonNotDeleteThisLineOfTimeline, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonDeleteThislineOfTimeline, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/dialog.jpg"))); // NOI18N
+        dialogNoticeTimeline.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         dialogNoticeTimeline.getAccessibleContext().setAccessibleDescription("");
 
-        dialogNoticeTask.setModal(true);
+        dialogNoticeTask.setMinimumSize(new java.awt.Dimension(461, 260));
+        dialogNoticeTask.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Anh/chị muốn xóa đầu công việc này đúng không ?");
+        jLabel2.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel2.setText("Bạn muốn xóa công việc này ?");
+        dialogNoticeTask.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, 46));
 
         buttonDeleteThisLineOfTask.setText("Đúng vậy!");
+        dialogNoticeTask.getContentPane().add(buttonDeleteThisLineOfTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 100, 30));
 
         buttonNoteDeleteThisLineOfTask.setText("Hông");
+        dialogNoticeTask.getContentPane().add(buttonNoteDeleteThisLineOfTask, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 100, 30));
 
-        javax.swing.GroupLayout dialogNoticeTaskLayout = new javax.swing.GroupLayout(dialogNoticeTask.getContentPane());
-        dialogNoticeTask.getContentPane().setLayout(dialogNoticeTaskLayout);
-        dialogNoticeTaskLayout.setHorizontalGroup(
-            dialogNoticeTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogNoticeTaskLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addContainerGap())
-            .addGroup(dialogNoticeTaskLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(buttonDeleteThisLineOfTask)
-                .addGap(84, 84, 84)
-                .addComponent(buttonNoteDeleteThisLineOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        dialogNoticeTaskLayout.setVerticalGroup(
-            dialogNoticeTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogNoticeTaskLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addGroup(dialogNoticeTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDeleteThisLineOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonNoteDeleteThisLineOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/dialog.jpg"))); // NOI18N
+        jLabel9.setDisabledIcon(null);
+        dialogNoticeTask.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ProEventPlaner");
+        setResizable(false);
 
+        PanelStart.setBackground(new java.awt.Color(153, 204, 255));
+        PanelStart.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         PanelStart.setMinimumSize(new java.awt.Dimension(900, 500));
         PanelStart.setPreferredSize(new java.awt.Dimension(900, 500));
+        PanelStart.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buttonStartProEventPlanner.setText("Bắt Đầu");
+        labelStart.setFont(new java.awt.Font("JetBrains Mono", 0, 36)); // NOI18N
+        labelStart.setForeground(new java.awt.Color(102, 0, 102));
+        labelStart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelStart.setText("Bắt Đầu");
+        labelStart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelStartMouseClicked(evt);
+            }
+        });
+        PanelStart.add(labelStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 320, 60));
 
-        javax.swing.GroupLayout PanelStartLayout = new javax.swing.GroupLayout(PanelStart);
-        PanelStart.setLayout(PanelStartLayout);
-        PanelStartLayout.setHorizontalGroup(
-            PanelStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelStartLayout.createSequentialGroup()
-                .addContainerGap(336, Short.MAX_VALUE)
-                .addComponent(buttonStartProEventPlanner, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(340, 340, 340))
-        );
-        PanelStartLayout.setVerticalGroup(
-            PanelStartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelStartLayout.createSequentialGroup()
-                .addGap(223, 223, 223)
-                .addComponent(buttonStartProEventPlanner, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Start.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        PanelStart.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        PanelListEvent.setBackground(new java.awt.Color(153, 204, 255));
+        PanelListEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         PanelListEvent.setMinimumSize(new java.awt.Dimension(900, 500));
         PanelListEvent.setPreferredSize(new java.awt.Dimension(900, 500));
+        PanelListEvent.setVerifyInputWhenFocusTarget(false);
+        PanelListEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelListEvent.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labelListEvent.setBackground(new java.awt.Color(255, 255, 255));
+        labelListEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        labelListEvent.setForeground(new java.awt.Color(204, 255, 153));
         labelListEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelListEvent.setText("Danh Sách Sự Kiện");
+        PanelListEvent.add(labelListEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 904, 61));
 
+        buttonGoAddEvent.setBackground(new java.awt.Color(153, 204, 255));
+        buttonGoAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 18)); // NOI18N
+        buttonGoAddEvent.setForeground(new java.awt.Color(0, 0, 0));
         buttonGoAddEvent.setText("Thêm Sự Kiện");
+        PanelListEvent.add(buttonGoAddEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 202, 52));
 
+        tableListEvent.setBackground(new java.awt.Color(204, 204, 255));
         tableListEvent.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        tableListEvent.setFont(new java.awt.Font("JetBrains Mono ExtraLight", 0, 12)); // NOI18N
+        tableListEvent.setForeground(new java.awt.Color(0, 0, 0));
         tableListEvent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", "", null, null, null},
@@ -272,194 +256,128 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(tableListEvent);
 
-        javax.swing.GroupLayout PanelListEventLayout = new javax.swing.GroupLayout(PanelListEvent);
-        PanelListEvent.setLayout(PanelListEventLayout);
-        PanelListEventLayout.setHorizontalGroup(
-            PanelListEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelListEventLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(buttonGoAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(340, 340, 340))
-            .addGroup(PanelListEventLayout.createSequentialGroup()
-                .addGroup(PanelListEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelListEventLayout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(labelListEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelListEventLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-        PanelListEventLayout.setVerticalGroup(
-            PanelListEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelListEventLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(labelListEvent)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonGoAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-        );
+        PanelListEvent.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 904, 329));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Start.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        PanelListEvent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         PanelEditEvent.setMinimumSize(new java.awt.Dimension(900, 500));
         PanelEditEvent.setPreferredSize(new java.awt.Dimension(900, 500));
+        PanelEditEvent.setVerifyInputWhenFocusTarget(false);
+        PanelEditEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLaberBigEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 24)); // NOI18N
+        titleLaberBigEventOfEditEvent.setForeground(new java.awt.Color(204, 255, 153));
         titleLaberBigEventOfEditEvent.setText("Sự Kiện Lớn");
+        PanelEditEvent.add(titleLaberBigEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 160, 40));
 
         buttonEditEventGoBackListEvent.setText("Go Back");
+        PanelEditEvent.add(buttonEditEventGoBackListEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        buttonAccessEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         buttonAccessEvent.setText("Truy Cập Sự Kiện");
+        PanelEditEvent.add(buttonAccessEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 180, 60));
 
+        buttonDeleteEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         buttonDeleteEvent.setText("Xóa Sự Kiện");
+        PanelEditEvent.add(buttonDeleteEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 200, 60));
 
+        buttonUpdateEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         buttonUpdateEvent.setText("Cập Nhật Sự Kiện");
+        PanelEditEvent.add(buttonUpdateEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 180, 60));
 
+        textFieldPlaceEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        PanelEditEvent.add(textFieldPlaceEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 390, 40));
+
+        textFieldNameEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        PanelEditEvent.add(textFieldNameEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 180, 30));
+
+        labelNameEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
+        labelNameEventOfEditEvent.setForeground(new java.awt.Color(204, 255, 153));
         labelNameEventOfEditEvent.setText("Tên Sự Kiện");
+        PanelEditEvent.add(labelNameEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 100, 30));
 
+        labelPlaceEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
+        labelPlaceEventOfEditEvent.setForeground(new java.awt.Color(0, 0, 0));
         labelPlaceEventOfEditEvent.setText("Địa điểm");
+        PanelEditEvent.add(labelPlaceEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 80, 40));
 
+        textFieldTimeEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        PanelEditEvent.add(textFieldTimeEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 130, 30));
+
+        labelTimeEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
+        labelTimeEventOfEditEvent.setForeground(new java.awt.Color(0, 0, 0));
         labelTimeEventOfEditEvent.setText("Thời Gian");
+        PanelEditEvent.add(labelTimeEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 80, 40));
 
+        textFieldDateEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        PanelEditEvent.add(textFieldDateEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 130, 30));
+
+        labelDateEventOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
+        labelDateEventOfEditEvent.setForeground(new java.awt.Color(0, 0, 0));
         labelDateEventOfEditEvent.setText("Ngày");
+        PanelEditEvent.add(labelDateEventOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 40, 40));
 
+        comboBoxStatusOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         comboBoxStatusOfEditEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pending", "Done", "Reject" }));
         comboBoxStatusOfEditEvent.setToolTipText("");
+        PanelEditEvent.add(comboBoxStatusOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 197, 130, -1));
 
+        labelStatusOfEditEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
+        labelStatusOfEditEvent.setForeground(new java.awt.Color(204, 255, 153));
         labelStatusOfEditEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatusOfEditEvent.setText("Status");
+        PanelEditEvent.add(labelStatusOfEditEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 170, 80, 30));
 
-        labelOptionEvent.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        labelOptionEvent.setText("Chức Năng Sự Kiện Hiện Tại");
-
-        javax.swing.GroupLayout PanelEditEventLayout = new javax.swing.GroupLayout(PanelEditEvent);
-        PanelEditEvent.setLayout(PanelEditEventLayout);
-        PanelEditEventLayout.setHorizontalGroup(
-            PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addComponent(textFieldNameEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                .addGap(182, 182, 182)
-                                .addComponent(labelPlaceEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                .addGap(450, 450, 450)
-                                .addComponent(comboBoxStatusOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 80, Short.MAX_VALUE))
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonAccessEvent)
-                        .addGap(75, 75, 75)
-                        .addComponent(buttonUpdateEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
-                        .addComponent(buttonDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(188, 188, 188))))
-            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(buttonEditEventGoBackListEvent)
-                                .addGap(283, 283, 283)
-                                .addComponent(titleLaberBigEventOfEditEvent))
-                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(labelNameEventOfEditEvent)
-                                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                        .addGap(121, 121, 121)
-                                        .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(textFieldPlaceEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(labelOptionEvent))
-                                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                                .addComponent(textFieldTimeEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(textFieldDateEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(95, 95, 95))
-                                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                        .addGap(144, 144, 144)
-                                        .addComponent(labelTimeEventOfEditEvent)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(labelDateEventOfEditEvent)
-                                        .addGap(140, 140, 140)))
-                                .addComponent(labelStatusOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1)))
-                .addContainerGap())
-        );
-        PanelEditEventLayout.setVerticalGroup(
-            PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelEditEventLayout.createSequentialGroup()
-                                .addGap(141, 141, 141)
-                                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(labelNameEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelStatusOfEditEvent)
-                                    .addComponent(labelDateEventOfEditEvent)
-                                    .addComponent(labelTimeEventOfEditEvent)))
-                            .addComponent(buttonEditEventGoBackListEvent))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textFieldNameEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxStatusOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFieldDateEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFieldTimeEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(PanelEditEventLayout.createSequentialGroup()
-                        .addComponent(titleLaberBigEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelPlaceEventOfEditEvent)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(textFieldPlaceEventOfEditEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOptionEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelEditEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonUpdateEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(buttonAccessEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69))
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Start.jpg"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        PanelEditEvent.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         PanelAddEvent.setMinimumSize(new java.awt.Dimension(900, 500));
         PanelAddEvent.setPreferredSize(new java.awt.Dimension(900, 500));
+        PanelAddEvent.setVerifyInputWhenFocusTarget(false);
+        PanelAddEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titleLaberBigEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 24)); // NOI18N
+        titleLaberBigEventOfAddEvent.setForeground(new java.awt.Color(204, 255, 153));
         titleLaberBigEventOfAddEvent.setText("Sự Kiện Lớn");
+        PanelAddEvent.add(titleLaberBigEventOfAddEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 6, -1, 81));
 
         buttonAddEventGoBackListEvent.setText("Go Back");
+        PanelAddEvent.add(buttonAddEventGoBackListEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         panelOfAddEvent.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 51), new java.awt.Color(204, 204, 204), null, null));
 
+        textFieldNameEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        labelNameEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         labelNameEventOfAddEvent.setText("Tên Sự Kiện");
 
+        labelTimeEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         labelTimeEventOfAddEvent.setText("Thời Gian");
 
+        labelDateEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         labelDateEventOfAddEvent.setText("Ngày");
 
+        textFieldDateEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        textFieldTimeEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        labelPlaceEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         labelPlaceEventOfAddEvent.setText("Địa điểm");
 
+        textFieldPlaceEventOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        labelStatusOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         labelStatusOfAddEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatusOfAddEvent.setText("Status");
 
+        comboBoxStatusOfAddEvent.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         comboBoxStatusOfAddEvent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Pending", "Done", "Reject" }));
         comboBoxStatusOfAddEvent.setToolTipText("");
 
+        buttonAddEvent.setFont(new java.awt.Font("JetBrains Mono", 1, 14)); // NOI18N
         buttonAddEvent.setText("Thêm Sự Kiện");
 
         javax.swing.GroupLayout panelOfAddEventLayout = new javax.swing.GroupLayout(panelOfAddEvent);
@@ -467,46 +385,44 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         panelOfAddEventLayout.setHorizontalGroup(
             panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(textFieldDateEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(237, 237, 237))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelPlaceEventOfAddEvent)
+                .addGap(222, 222, 222)
                 .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxStatusOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addComponent(comboBoxStatusOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAddEvent))
+                .addGap(23, 23, 23))
             .addGroup(panelOfAddEventLayout.createSequentialGroup()
                 .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOfAddEventLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(textFieldNameEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelOfAddEventLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(75, 75, 75)
                         .addComponent(labelNameEventOfAddEvent)))
                 .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelOfAddEventLayout.createSequentialGroup()
-                        .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelOfAddEventLayout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(labelPlaceEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelOfAddEventLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textFieldTimeEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textFieldPlaceEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(210, 234, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
-                                .addComponent(labelTimeEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112)
-                                .addComponent(labelDateEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(256, 256, 256))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
                                 .addComponent(labelStatusOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61))))))
+                                .addGap(61, 61, 61))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOfAddEventLayout.createSequentialGroup()
+                                .addComponent(textFieldDateEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(237, 237, 237))))
+                    .addGroup(panelOfAddEventLayout.createSequentialGroup()
+                        .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelOfAddEventLayout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(labelTimeEventOfAddEvent)
+                                .addGap(195, 195, 195)
+                                .addComponent(labelDateEventOfAddEvent))
+                            .addGroup(panelOfAddEventLayout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addGroup(panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textFieldPlaceEventOfAddEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+                                    .addComponent(textFieldTimeEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(237, 237, 237))))
         );
         panelOfAddEventLayout.setVerticalGroup(
             panelOfAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,43 +457,29 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
                 .addGap(168, 168, 168))
         );
 
-        javax.swing.GroupLayout PanelAddEventLayout = new javax.swing.GroupLayout(PanelAddEvent);
-        PanelAddEvent.setLayout(PanelAddEventLayout);
-        PanelAddEventLayout.setHorizontalGroup(
-            PanelAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAddEventLayout.createSequentialGroup()
-                .addGroup(PanelAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAddEventLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttonAddEventGoBackListEvent)
-                        .addGap(267, 267, 267)
-                        .addComponent(titleLaberBigEventOfAddEvent))
-                    .addGroup(PanelAddEventLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(panelOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        PanelAddEventLayout.setVerticalGroup(
-            PanelAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAddEventLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelAddEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(titleLaberBigEventOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddEventGoBackListEvent))
-                .addGap(18, 18, 18)
-                .addComponent(panelOfAddEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
-        );
+        PanelAddEvent.add(panelOfAddEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 105, -1, 292));
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Start.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        PanelAddEvent.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 530));
+
+        PanelAccessEvent.setBackground(new java.awt.Color(153, 204, 255));
         PanelAccessEvent.setMinimumSize(new java.awt.Dimension(900, 500));
         PanelAccessEvent.setPreferredSize(new java.awt.Dimension(900, 500));
+        PanelAccessEvent.setVerifyInputWhenFocusTarget(false);
+        PanelAccessEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelNameEventOfAccessEvent.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelNameEventOfAccessEvent.setForeground(new java.awt.Color(153, 255, 102));
         labelNameEventOfAccessEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelNameEventOfAccessEvent.setText("Tên Sự Kiện");
+        PanelAccessEvent.add(labelNameEventOfAccessEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 6, 460, 43));
 
         TabbedPaneAccessEvent.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TabbedPaneAccessEvent.setAutoscrolls(true);
 
+        tableTask.setBackground(new java.awt.Color(255, 255, 255));
+        tableTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         tableTask.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, "", null, null, null},
@@ -619,6 +521,9 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableTask.setToolTipText("");
+        tableTask.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tableTask.setFillsViewportHeight(true);
         tableTask.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableTaskMouseClicked(evt);
@@ -626,28 +531,48 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tableTask);
 
+        labelOrdinalNumberOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelOrdinalNumberOfTask.setText("Số Thứ Tự");
 
+        labelContentOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelContentOfTask.setText("Nội Dung");
 
+        labelLeadOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelLeadOfTask.setText("Lead");
 
+        labelDeadlineOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelDeadlineOfTask.setText("Deadline");
 
+        labelNoteOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelNoteOfTask.setText("Note");
 
+        textFieldOrdinalNumberOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        textFieldContentOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        textFieldLeadOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        textFieldDeadlineOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
         textAreaNoteOfTask.setColumns(20);
+        textAreaNoteOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        textAreaNoteOfTask.setLineWrap(true);
         textAreaNoteOfTask.setRows(5);
         jScrollPane3.setViewportView(textAreaNoteOfTask);
 
+        buttonAddOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonAddOfTask.setText("Thêm");
 
+        buttonUpdateOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonUpdateOfTask.setText("Cập Nhật");
 
+        buttonDeleteAllOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonDeleteAllOfTask.setText("Làm Mới Các Công Việc");
 
+        labelStatusOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelStatusOfTask.setText("Trạng Thái");
 
+        comboBoxStatusOfTask.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         comboBoxStatusOfTask.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending", "Done" }));
 
         javax.swing.GroupLayout PanelTaskLayout = new javax.swing.GroupLayout(PanelTask);
@@ -656,42 +581,37 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
             PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTaskLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelTaskLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelTaskLayout.createSequentialGroup()
+                                .addComponent(labelOrdinalNumberOfTask)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addComponent(textFieldOrdinalNumberOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelTaskLayout.createSequentialGroup()
-                                .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelTaskLayout.createSequentialGroup()
-                                        .addComponent(labelOrdinalNumberOfTask)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                        .addComponent(textFieldOrdinalNumberOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PanelTaskLayout.createSequentialGroup()
-                                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelContentOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(labelNoteOfTask, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(labelDeadlineOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(labelLeadOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addComponent(labelStatusOfTask))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textFieldLeadOfTask)
-                                            .addComponent(textFieldDeadlineOfTask)
-                                            .addComponent(comboBoxStatusOfTask, 0, 165, Short.MAX_VALUE)
-                                            .addComponent(textFieldContentOfTask))))
-                                .addGap(50, 50, 50))
-                            .addGroup(PanelTaskLayout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(PanelTaskLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelTaskLayout.createSequentialGroup()
-                                .addComponent(buttonAddOfTask)
+                                .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelContentOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(labelNoteOfTask, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelDeadlineOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(labelLeadOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(labelStatusOfTask))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonUpdateOfTask))
-                            .addComponent(buttonDeleteAllOfTask))
+                                .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(textFieldLeadOfTask)
+                                    .addComponent(textFieldDeadlineOfTask)
+                                    .addComponent(comboBoxStatusOfTask, 0, 165, Short.MAX_VALUE)
+                                    .addComponent(textFieldContentOfTask))))
+                        .addGap(50, 50, 50))
+                    .addGroup(PanelTaskLayout.createSequentialGroup()
+                        .addGroup(PanelTaskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelTaskLayout.createSequentialGroup()
+                                .addComponent(buttonAddOfTask, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonUpdateOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                            .addComponent(buttonDeleteAllOfTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         PanelTaskLayout.setVerticalGroup(
@@ -733,6 +653,9 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
 
         TabbedPaneAccessEvent.addTab("Task", PanelTask);
 
+        tableTimeLine.setAutoCreateRowSorter(true);
+        tableTimeLine.setBackground(new java.awt.Color(255, 255, 255));
+        tableTimeLine.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         tableTimeLine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -777,20 +700,32 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tableTimeLine);
 
+        labelTimeOfTimeLine.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelTimeOfTimeLine.setText("Thời Gian");
 
+        textFieldTimeOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        labelContentOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelContentOfTimeline.setText("Nội dung");
 
+        textFieldContentOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+
+        labelNoteOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         labelNoteOfTimeline.setText("Note");
 
         textAreaNoteOfTimeline.setColumns(20);
+        textAreaNoteOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
+        textAreaNoteOfTimeline.setLineWrap(true);
         textAreaNoteOfTimeline.setRows(5);
         jScrollPane5.setViewportView(textAreaNoteOfTimeline);
 
+        buttonAddOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonAddOfTimeline.setText("Thêm");
 
+        buttonUpdateOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonUpdateOfTimeline.setText("Cập Nhật");
 
+        buttonDeleteAllOfTimeline.setFont(new java.awt.Font("JetBrains Mono", 0, 12)); // NOI18N
         buttonDeleteAllOfTimeline.setText("Làm Mới Timeline");
 
         javax.swing.GroupLayout PanelTimelineLayout = new javax.swing.GroupLayout(PanelTimeline);
@@ -799,33 +734,29 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
             PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTimelineLayout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelTimelineLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(PanelTimelineLayout.createSequentialGroup()
-                                .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelTimeOfTimeLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelContentOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelNoteOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textFieldTimeOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                                    .addComponent(textFieldContentOfTimeline))
-                                .addGap(42, 42, 42))
-                            .addGroup(PanelTimelineLayout.createSequentialGroup()
-                                .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelTimelineLayout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(buttonAddOfTimeline)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                                        .addComponent(buttonUpdateOfTimeline)))
-                                .addGap(41, 41, 41))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTimelineLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonDeleteAllOfTimeline)
-                        .addGap(84, 84, 84))))
+                        .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTimeOfTimeLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelContentOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelNoteOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFieldTimeOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                            .addComponent(textFieldContentOfTimeline))
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTimelineLayout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelTimelineLayout.createSequentialGroup()
+                        .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonDeleteAllOfTimeline, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelTimelineLayout.createSequentialGroup()
+                                .addComponent(buttonAddOfTimeline, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buttonUpdateOfTimeline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(41, 41, 41))))
         );
         PanelTimelineLayout.setVerticalGroup(
             PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -845,42 +776,25 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
                 .addComponent(labelNoteOfTimeline)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(56, 56, 56)
                 .addGroup(PanelTimelineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAddOfTimeline)
                     .addComponent(buttonUpdateOfTimeline))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonDeleteAllOfTimeline)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         TabbedPaneAccessEvent.addTab("Timeline", PanelTimeline);
 
-        buttonAccessEventGoBackListEvent.setText("Go Back");
+        PanelAccessEvent.add(TabbedPaneAccessEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 909, 445));
 
-        javax.swing.GroupLayout PanelAccessEventLayout = new javax.swing.GroupLayout(PanelAccessEvent);
-        PanelAccessEvent.setLayout(PanelAccessEventLayout);
-        PanelAccessEventLayout.setHorizontalGroup(
-            PanelAccessEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAccessEventLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buttonAccessEventGoBackListEvent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labelNameEventOfAccessEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221))
-            .addComponent(TabbedPaneAccessEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
-        );
-        PanelAccessEventLayout.setVerticalGroup(
-            PanelAccessEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAccessEventLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelAccessEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelNameEventOfAccessEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAccessEventGoBackListEvent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TabbedPaneAccessEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        buttonAccessEventGoBackListEvent.setText("Go Back");
+        PanelAccessEvent.add(buttonAccessEventGoBackListEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Start.jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        PanelAccessEvent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -895,28 +809,26 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
                 .addComponent(PanelEditEvent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 2, Short.MAX_VALUE)
-                    .addComponent(PanelAccessEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
-                    .addGap(0, 2, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelAccessEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                    .addGap(0, 1, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(PanelAddEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addComponent(PanelAddEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(PanelStart, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE))
+                .addComponent(PanelStart, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(PanelListEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE))
+                .addComponent(PanelListEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(PanelEditEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
-                    .addGap(0, 6, Short.MAX_VALUE)))
+                    .addComponent(PanelEditEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 13, Short.MAX_VALUE)
-                    .addComponent(PanelAccessEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-                    .addGap(0, 13, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelAccessEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1056,17 +968,8 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     }
 
     //
-    // Panel Bắt Đầu
-    public void buttonStartProEventPlannerAction(ActionListener actionListener) {
-        buttonStartProEventPlanner.addActionListener(actionListener);
-    }
-
-    public void displayButtonStartProEventPlannerAction() {
-        PanelStart.setVisible(false);
-        PanelListEvent.setVisible(true);
-        
-    }
-
+    
+    
     // Panel Task + TimeLine
     public void displayButtonNotDeleteThisLineOFTask(){
         dialogNoticeTask.setVisible(false);
@@ -1080,7 +983,7 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     }
 
     public void setDialogNoticeTask(){
-        dialogNoticeTask.setSize(500, 300);
+        dialogNoticeTask.setSize(463, 252);
          final Toolkit toolkit = Toolkit.getDefaultToolkit();
          final Dimension screenSize = toolkit.getScreenSize();
          final int x = (screenSize.width - dialogNoticeTask.getWidth()) / 2;
@@ -1095,7 +998,7 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     }
     public void setDialogNoticeTimeline() {
         
-        dialogNoticeTimeline.setSize(500, 300);
+        dialogNoticeTimeline.setSize(463, 252);
         final Toolkit toolkit = Toolkit.getDefaultToolkit();
         final Dimension screenSize = toolkit.getScreenSize();
         final int x = (screenSize.width - dialogNoticeTimeline.getWidth()) / 2;
@@ -1292,21 +1195,34 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     
     private void tableTimeLineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTimeLineMouseClicked
         int row = tableTimeLine.getSelectedRow();
-        textFieldContentOfTimeline.setText((String) tableTimeLine.getValueAt(row, 1));
+        if(row == -1) JOptionPane.showMessageDialog(PanelAccessEvent, "Không thể truy cập","Thông báo",JOptionPane.ERROR_MESSAGE);
+        else{
+            textFieldContentOfTimeline.setText((String) tableTimeLine.getValueAt(row, 1));
         textFieldTimeOfTimeline.setText((String) tableTimeLine.getValueAt(row, 0));
         textAreaNoteOfTimeline.setText((String) tableTimeLine.getValueAt(row, 2));
+        }
+        
     }//GEN-LAST:event_tableTimeLineMouseClicked
 
     private void tableTaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableTaskMouseClicked
         int row = tableTask.getSelectedRow();
-        textFieldOrdinalNumberOfTask.setText((String) tableTask.getValueAt(row, 0));
+        if(row == -1) JOptionPane.showMessageDialog(PanelAccessEvent, "Không thể truy cập","Thông báo",JOptionPane.ERROR_MESSAGE);
+        else{
+            textFieldOrdinalNumberOfTask.setText((String) tableTask.getValueAt(row, 0));
         textFieldContentOfTask.setText((String)tableTask.getValueAt(row, 1));
         textFieldLeadOfTask.setText((String)tableTask.getValueAt(row, 2));
         textFieldDeadlineOfTask.setText((String)tableTask.getValueAt(row, 3));
         textAreaNoteOfTask.setText((String)tableTask.getValueAt(row, 4));
         comboBoxStatusOfTask.setSelectedItem(tableTask.getValueAt(row, 5));
+        }
     }//GEN-LAST:event_tableTaskMouseClicked
-    // Panel List Event
+
+    private void labelStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelStartMouseClicked
+        PanelStart.setVisible(false);
+        PanelListEvent.setVisible(true);
+    }//GEN-LAST:event_labelStartMouseClicked
+    
+// Panel List Event
     
     public void buttonGoAddEventAction(ActionListener actionListener) {
         buttonGoAddEvent.addActionListener(actionListener);
@@ -1379,7 +1295,6 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     private javax.swing.JButton buttonGoAddEvent;
     private javax.swing.JButton buttonNotDeleteThisLineOfTimeline;
     private javax.swing.JButton buttonNoteDeleteThisLineOfTask;
-    private javax.swing.JButton buttonStartProEventPlanner;
     private javax.swing.JButton buttonUpdateEvent;
     private javax.swing.JButton buttonUpdateOfTask;
     private javax.swing.JButton buttonUpdateOfTimeline;
@@ -1390,12 +1305,18 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     private javax.swing.JDialog dialogNoticeTimeline;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelContentOfTask;
     private javax.swing.JLabel labelContentOfTimeline;
     private javax.swing.JLabel labelDateEventOfAddEvent;
@@ -1408,10 +1329,10 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     private javax.swing.JLabel labelNameEventOfEditEvent;
     private javax.swing.JLabel labelNoteOfTask;
     private javax.swing.JLabel labelNoteOfTimeline;
-    private javax.swing.JLabel labelOptionEvent;
     private javax.swing.JLabel labelOrdinalNumberOfTask;
     private javax.swing.JLabel labelPlaceEventOfAddEvent;
     private javax.swing.JLabel labelPlaceEventOfEditEvent;
+    private javax.swing.JLabel labelStart;
     private javax.swing.JLabel labelStatusOfAddEvent;
     private javax.swing.JLabel labelStatusOfEditEvent;
     private javax.swing.JLabel labelStatusOfTask;
@@ -1442,4 +1363,5 @@ public final class FrameProEventPlanner extends javax.swing.JFrame {
     private javax.swing.JLabel titleLaberBigEventOfEditEvent;
     // End of variables declaration//GEN-END:variables
 
+    
 }

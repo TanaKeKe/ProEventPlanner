@@ -1,24 +1,29 @@
-## 💡Giới thiệu
-🤜 ProEventPlanner (ứng dụng tổ chức sự kiện) là 1 ứng dụng cho phép người dùng quản lý các sự kiện. Trong sự kiện hay các đầu công việc sẽ có các chức năng thêm, sửa, xóa 
-- Có 3 option: pending, done, reject.
-- Thẻ sử kiện sẽ gồm 
-  - Thời gian : giờ (định dạng: xxHxx) + ngày (dd/mm/yyyy)
-  - Địa điểm tổ chức
-  - Sắp xếp các sự kiện theo thời gian.
-- Mỗi sự kiện lớn sẽ có các đầu công việc nhỏ chính:
+### 💡Ứng dụng tổ chức sự kiện: ProEventPlanner
+🤜 Ứng dụng tổ chức sự kiện: ProEventPlanner là 1 ứng dụng cho phép người dùng quản lý các sự kiện. Ứng dụng cho phép: 
 
-    1. Tổng quan: timeline, kế hoạch tổng(có thể phát triển sau), biên bản họp (có thể phát triển sau).
-    2. Hậu cần: Danh sách nhân sự tham gia(khung thời gian tham gia) (có thể phát triển sau) + các đầu công việc (trong đầu công việc sẽ gồm deadline, lead, nhân sự, note)
-    3. Đối ngoại: (sau khi phát triển xong hậu cần sẽ triển khai phần này sau).
-    4. Truyền thông: (sau khi phát triển xong đối ngoại sẽ triển khai phần này sau)
+### Authors
+[@TanaKeKe](https://github.com/TanaKeKe)
+### 📷Screenshots
+![alt text](<Screenshot 2024-04-06 235535.png>)
+![alt text](<Screenshot 2024-04-06 235553.png>)
+![alt text](<Screenshot 2024-04-06 235614.png>)
+![alt text](<Screenshot 2024-04-06 235647.png>)
+### Features
+- Thêm - sửa - xoá sự kiện mới, cập nhật tiến độ sự kiện.
+- Thêm timeline cho 1 sự kiện, chỉnh được mốc thời gian nào làm gì.
+- Thêm các đầu việc cho sự kiện bao gồm nội dung đầu công việc, deadline, lead, note, trạng thái (done,pending).
+- Tất cả dữ liệu sẽ được lưu vào file nên không sợ mất dữ liệu nha.
+### Requirements
 
-🌱Có thể phát triển thêm 1 số tính năng về phần giao diện kiểu animation chỉ chỉ đổi màu cho đẹp, có 2 chế độ tự động sắp xếp theo thời gian hoặc sắp xếp theo ý mình (đối với thẻ sử kiện lớn bên ngoài), ghim sự kiện, delete all, auto format, ...
-
-## 📷Ảnh demo 
-<có sau khi hoàn thành>
-
-## 📽️Video demo
-<có sau khi hoàn thành>
-
-## 🚧UML
-![alt text](image.png)
+- Soure format: JDK 17
+- Profile: Full JRE
+- Encoding: UTF-8
+### 📽️Video
+[Ứng dụng tổ chức sự kiện: ProEventPlanner](https://www.youtube.com/watch?v=moF1qCVkiLs)
+### 🚧UML
+![alt text](image-1.png)
+### Installation
+```java
+- Clone dự án trên.
+- mở folder dist -> chạy file ProEventPlanner.jar
+```

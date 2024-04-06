@@ -9,11 +9,11 @@ import Model.Task;
 import Model.Timeline;
 import View.FrameProEventPlanner;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,7 +28,7 @@ public class Main {
         frameProEventPlanner.setVisible(true);
         dataEvent.loadDataEventToList(nameListEvent);
         loadListToTableListEvent();
-        PanelStart();
+        
         PanelListEvent();
         PanelAddEvent();
         PanelEditEvent();
@@ -36,11 +36,7 @@ public class Main {
 
     }
 
-    public void PanelStart() {
-        frameProEventPlanner.buttonStartProEventPlannerAction((ActionEvent e) -> {
-            frameProEventPlanner.displayButtonStartProEventPlannerAction();
-        });
-    }
+
 
     public void PanelAddEvent() {
 
@@ -113,6 +109,7 @@ public class Main {
                             frameProEventPlanner.getTextFieldDateEventOfEditEvent(),
                             frameProEventPlanner.getTextFieldPlaceEventOfEditEvent(),
                             frameProEventPlanner.getComboBoxStatusOfEditEvent());
+                    optionEvent.setNoneInfor(tmpEvent);
                     optionEvent.setEvent(tmpEvent);
 
                     if (optionEvent.checkDuplicateEvent(tmpEvent, nameListEvent) == 0) {
@@ -121,6 +118,7 @@ public class Main {
                         event.setPlaceEvent(frameProEventPlanner.getTextFieldPlaceEventOfEditEvent());
                         event.setTimeEvent(frameProEventPlanner.getTextFieldTimeEventOfEditEvent());
                         event.setStatusEvent(frameProEventPlanner.getComboBoxStatusOfEditEvent());
+                        optionEvent.setNoneInfor(tmpEvent);
                         optionEvent.setEvent(event);
                         frameProEventPlanner.showMessageUpdateEventSuccess();
                     } else {
@@ -174,8 +172,9 @@ public class Main {
                     }
                     if (checkTimeline == 0) {
                         optionEvent.setNoneTimeline(currentTimeline);
-                        event.listTimeLine.add(currentTimeline);
                         optionEvent.setEvent(event);
+                        event.listTimeLine.add(currentTimeline);
+                        
                         loadListTimelineToTableTimeline(event);
                         frameProEventPlanner.resetTimeline();
                     }
@@ -190,6 +189,7 @@ public class Main {
             int currentRow = tableListEvent.getSelectedRow();
             editTimeline();
             frameProEventPlanner.showMessageUpdateTimelineSuccess();
+            frameProEventPlanner.resetTimeline();
             for (Event event : nameListEvent) {
                 if (event.getId().equals(String.valueOf(currentRow)) == true) {
                     loadListTimelineToTableTimeline(event);
@@ -208,6 +208,7 @@ public class Main {
                     loadListTimelineToTableTimeline(event);
                 }
             }
+            frameProEventPlanner.resetTimeline();
             dataEvent.storeListToDataEvent(nameListEvent);
         });
         // xóa dòng timeline nếu kích double 2 lần
@@ -270,6 +271,7 @@ public class Main {
             int currentRow = tableListEvent.getSelectedRow();
             editTask();
             frameProEventPlanner.showMessageUpdateTaskSuccess();
+            frameProEventPlanner.resetTask();
             for (Event event : nameListEvent) {
                 if (event.getId().equals(String.valueOf(currentRow)) == true) {
                     loadListTaskToTableTask(event);
@@ -288,6 +290,7 @@ public class Main {
                     loadListTaskToTableTask(event);
                 }
             }
+            frameProEventPlanner.resetTask();
             dataEvent.storeListToDataEvent(nameListEvent);
         });
         // xóa Task nếu double click
@@ -330,9 +333,11 @@ public class Main {
                         task.setNote(frameProEventPlanner.getTextAreaNoteOfTask());
                         task.setLead(frameProEventPlanner.getTextFieldLeadOfTask());
                         task.setStatus(frameProEventPlanner.getComboBoxStatusOfTask());
+                        optionEvent.setNoneTask(task);
                         break;
                     }
                 }
+                
                 optionEvent.setEvent(event);
             }
         }
@@ -349,6 +354,7 @@ public class Main {
                         line.setTime(frameProEventPlanner.getTextFieldTimeOfTimeline());
                         line.setNote(frameProEventPlanner.getTextAreaNoteOfTimeline());
                         line.setContent(frameProEventPlanner.getTextFieldContentOfTimeline());
+                        optionEvent.setNoneTimeline(line);
                         break;
                     }
                 }

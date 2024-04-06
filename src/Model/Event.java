@@ -8,8 +8,16 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Event implements Serializable{
+public class Event implements Serializable {
+
     private String id;
+    private String nameEvent;
+    private String timeEvent;
+    private String dateEvent;
+    private String placeEvent;
+    private String statusEvent;
+    private int sizeTask = 0;
+    private int sizeTimeline = 0;
 
     public String getId() {
         return id;
@@ -18,13 +26,6 @@ public class Event implements Serializable{
     public void setId(String id) {
         this.id = id;
     }
-    private String nameEvent;
-    private String timeEvent;
-    private String dateEvent;
-    private String placeEvent;
-    private String statusEvent;
-    private int sizeTask = 0;
-    private int sizeTimeline = 0;
 
     public int getSizeTask() {
         return sizeTask;
@@ -43,9 +44,11 @@ public class Event implements Serializable{
     }
     public List<Timeline> listTimeLine = new LinkedList<>();
     public List<Task> listTask = new LinkedList<>();
-    public Event(){
+
+    public Event() {
         //
     }
+
     public Event(String nameEvent, String timeEvent, String dateEvent, String placeEvent, String statusEvent) {
         this.nameEvent = nameEvent;
         this.timeEvent = timeEvent;
@@ -54,9 +57,6 @@ public class Event implements Serializable{
         this.statusEvent = statusEvent;
     }
 
-    
-    
-    
     public String getNameEvent() {
         return nameEvent;
     }
@@ -96,5 +96,5 @@ public class Event implements Serializable{
     public void setStatusEvent(String statusEvent) {
         this.statusEvent = statusEvent;
     }
-    
+
 }
